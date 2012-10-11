@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+	<title>Remote BootPicker (beta)</title>
+</head>
+<body>
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			
+			$('#hostform').submit(function () {
+				hostname=$('#hostname').val();
+				baseurl= 'http://' + hostname + ':11702/';
+				
+				$.getJSON(baseurl + 'status', function(data) {
+					if (data.userLoggedIn) {
+						$('#username').text(data.username);
+					} else {
+						$('#username').text('none');
+					}
+					
+					$('#currentos').text(data.os);
+					
+					$('#bootoptionslist').empty();
+					
+					if (data.bootoptions.length > 0) {
+						for (x in data.bootoptions) {
+							opt = data.bootoptions[x];
+							$('<li><a href="'+baseurl+'boot/'+opt+'">'+opt+'</a></li>').appendTo('#bootoptionslist');
+						}						
+					} else {
+						$('<li>', { text: 'no boot options'}).appendTo('#bootoptionslist');
+					}
+
+				});
+				
+				return false;
+			});
+			
+			
+			defaulthostname = getParameterByName('hostname');
+						
+			$('#hostname').val(defaulthostname);
+			$('#hostform').submit();
+		});
+		
+		
+		//this from: http://stackoverflow.com/questions/901115/get-query-string-values-in-javascript
+		function getParameterByName(name) {
+		  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		  var regexS = "[\\?&]" + name + "=([^&#]*)";
+		  var regex = new RegExp(regexS);
+		  var results = regex.exec(window.location.href);
+		  if(results == null)
+			return "";
+		  else
+			return decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+		
+	</script>
+
+	<div id="header">
+		<h1>Remote BootPicker</h1>
+		<h2>(beta)</h2>
+	</div>
+	<div id="formdiv">
+		<p><form id="hostform">
+			<label for="hostname">Hostname:</label>
+			<input id="hostname" type="text" value="cal-imac05" />
+			<input type="submit" id="hostbutton" value="Go" "/>
+		</form></p>
+	</div>
+	<div id="results">
+		<table>
+			<tr><th>Current OS:</th><td><span id="currentos">OS</span></td></tr>
+			<tr><th>User:</th><td><span id="username">user</span></td></tr>
+			<tr><th>Boot to:</th><td><ul id="bootoptionslist"><li>option</li></ul></tr>
+		</table>
+	</div>
+</body>
