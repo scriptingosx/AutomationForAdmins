@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		tell application "Remote Desktop"		set theComputer to first item of input		set fqdn to DNS name of theComputer				return "file:///Users/armin/Dropbox/Documents/Scripts%20and%20Workflows/Packages/Remote%20BootPicker/remotebootpicker.html?hostname=" &amp; fqdn			end tell	return inputend run</string>
+					<string>on run {input, parameters}		tell application "Remote Desktop"		set theComputer to first item of input		set fqdn to DNS name of theComputer				return "file:///path/to/remotebootpicker.html?hostname=" &amp; fqdn			end tell	return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.500000:481.000000</string>
+				<string>294.000000:481.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -285,7 +285,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.500000:168.000000</string>
+				<string>294.000000:168.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Website Popup.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -295,7 +295,7 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>D0A144A3-8A9C-4F41-A071-2F839AAAD0B5</key>
+		<key>3537C758-7192-4E35-BFC0-E27263CFA014</key>
 		<dict>
 			<key>from</key>
 			<string>C284E3EF-11F7-4263-A4F1-BBDC1B9F5154 - C284E3EF-11F7-4263-A4F1-BBDC1B9F5154</string>

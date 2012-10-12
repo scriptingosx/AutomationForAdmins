@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		tell application "Remote Desktop"		repeat with theComputer in input						set adminname to "labadmin"						set fqdn to DNS name of theComputer						open location "ssh://" &amp; adminname &amp; "@" &amp; fqdn &amp; "/"					end repeat	end tell	return inputend run</string>
+					<string>on run {input, parameters}		tell application "Remote Desktop"		repeat with theComputer in input			set adminname to "labadmin"			set fqdn to DNS name of theComputer			open location "ssh://" &amp; adminname &amp; "@" &amp; fqdn &amp; "/"		end repeat	end tell	return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.500000:454.000000</string>
+				<string>294.000000:398.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>

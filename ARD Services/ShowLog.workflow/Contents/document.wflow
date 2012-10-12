@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>339.2</string>
+	<string>346</string>
 	<key>AMApplicationVersion</key>
-	<string>2.2.4</string>
+	<string>2.3</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -25,7 +25,7 @@
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>1.0.1</string>
+				<string>1.0.2</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Automator</string>
@@ -51,13 +51,12 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		set myComputers to {"Atlas", "Calypso", "Rhea", "Phoebe"}	set servers to {"its-macdl5", "its-macdl6"}		tell application "Remote Desktop"		repeat with theComputer in input			if name of theComputer is in myComputers then				set adminname to "armin"			else if name of theComputer is in servers then				set adminname to "maint"			else				set adminname to "labadmin"			end if			set fqdn to DNS name of theComputer			
-			tell app "Terminal"			do script "ssh " &amp; adminname &amp; "@" &amp; fqdn &amp; " '/usr/bin/tail -f /var/log/system.log'"			end		end repeat	end tell	return inputend run</string>
+					<string>on run {input, parameters}		tell application "Remote Desktop"		repeat with theComputer in input			set adminname to "labadmin"			set fqdn to DNS name of theComputer						tell application "Terminal"				do script "ssh " &amp; adminname &amp; "@" &amp; fqdn &amp; " '/usr/bin/tail -f /var/log/system.log'"			end tell		end repeat	end tell	return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
 				<key>CFBundleVersion</key>
-				<string>1.0.1</string>
+				<string>1.0.2</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<false/>
 				<key>CanShowWhenRun</key>
@@ -103,12 +102,10 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.500000:554.000000</string>
+				<string>294.000000:398.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>

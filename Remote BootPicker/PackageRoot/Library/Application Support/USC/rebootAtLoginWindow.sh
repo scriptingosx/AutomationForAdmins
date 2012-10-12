@@ -14,7 +14,7 @@ then
 	bless --setBoot --mount "/Volumes/Bootcamp" --legacy
 elif [[ $tgt == "net" ]]
 then
-	bless --netboot --server bsdp://128.125.5.196 --nextonly
+	bless --netboot --server bsdp://255.255.255.255 --nextonly
 else
 	bless --setBoot --mount "/"
 fi
