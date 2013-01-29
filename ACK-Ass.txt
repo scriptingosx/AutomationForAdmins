@@ -1,0 +1,3 @@
+Add the following line as a Bookmark to your favored browser:
+
+javascript:for(var%20i=1,r;%20r=document.getElementsByClassName("objectList")[0].rows[i];%20i++){%20c=r.cells[0];ip=c.getAttribute("bt-xtitle").match(/(?:\d{1,3}\.){3}\d{1,3}/);%20c.innerHTML%20=%20"<a%20href=\"ssh://labadmin@"+ip+"\">SSH</a>%20|%20<a%20href=\"vnc://"+ip+"\">VNC</a>%20|%20<a%20href=\"rdp://"+ip+"\">RDP</a>"%20}
